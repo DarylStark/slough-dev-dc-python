@@ -1,6 +1,6 @@
 ---
 name: Push code (dev)
-run-name: "Coding branch"
+run-name: "Coding branch (dev)"
 on:
   push:
     branches:
