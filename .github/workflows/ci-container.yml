@@ -1,8 +1,0 @@
----
-on:
-  workflow_call:
-
-jobs:
-  lint:
-    name: Lint container file
-    uses: ./.github/workflows/ci-container-lint.yml
