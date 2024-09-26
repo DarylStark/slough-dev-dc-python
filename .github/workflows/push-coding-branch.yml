@@ -1,0 +1,13 @@
+---
+name: Push code
+run-name: "Coding branch"
+on:
+  push:
+    branches-ignore:
+      - main
+      - dev
+
+jobs:
+  ci-lint:
+    name: Lint container file
+    uses: ./.github/workflows/ci-container-lint.yml
