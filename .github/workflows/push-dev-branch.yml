@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - dev
-      - issue-3/feature/pipeline-container-linting
 
 jobs:
   ci:
@@ -14,7 +13,7 @@ jobs:
     uses: ./.github/workflows/cd-container.yml
     needs: ci
     with:
-      container-tags: latest-dev
+      container-tags: slough-dev-dc-python:latest-dev
       platforms: linux/arm64,linux/amd64
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
