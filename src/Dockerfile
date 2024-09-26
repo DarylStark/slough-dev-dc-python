@@ -2,23 +2,19 @@
 FROM slough-dev-dc-generic-base:0.0.3 AS base
 
 # Install `uv`
-RUN wget https://astral.sh/uv/install.sh
-RUN chmod +x install.sh
-RUN ./install.sh
-RUN rm install.sh
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
+    echo "# Autocompletion for UV" >> .bashrc.local && \
+    /home/developer/.cargo/bin/uv generate-shell-completion bash >> .bashrc.local && \
+    echo >> .bashrc.local
 
 # Install `ruff`
-RUN wget https://astral.sh/ruff/install.sh
-RUN chmod +x install.sh
-RUN ./install.sh
-RUN rm install.sh
-
-# Generate shell completion for uv
-RUN echo 'eval "$(/home/developer/.cargo/bin/uv generate-shell-completion bash)"' >> .bashrc.local
-RUN echo 'eval "$(/home/developer/.cargo/bin/ruff generate-shell-completion bash)"' >> .bashrc.local
+RUN curl -LsSf https://astral.sh/ruff/install.sh | sh && \
+    echo "# Autocompletion for Ruff" >> .bashrc.local && \
+    /home/developer/.cargo/bin/ruff generate-shell-completion bash >> .bashrc.local && \
+    echo >> .bashrc.local
 
 # Install a few Python versions
-RUN /home/developer/.cargo/bin/uv python install 3.12
+# RUN /home/developer/.cargo/bin/uv python install 3.12
 
 # Configure Starship
 ENV PROMPTNAME="PYTHON"
