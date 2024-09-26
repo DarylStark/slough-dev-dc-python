@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM slough-dev-dc-generic-base:latest AS base
+FROM dast1986/slough-dev-dc-generic-base:latest AS base
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
