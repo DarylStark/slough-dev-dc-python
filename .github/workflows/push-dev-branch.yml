@@ -1,6 +1,4 @@
 ---
-name: Push code (dev)
-run-name: "Coding branch (dev)"
 on:
   push:
     branches:
@@ -8,13 +6,13 @@ on:
       - issue-3/feature/pipeline-container-linting
 
 jobs:
-  ci-lint:
-    name: Lint container file
-    uses: ./.github/workflows/ci-container-lint.yml
-  cd-deploy:
-    name: Deploy container image
-    uses: ./.github/workflows/cd-container-publish.yml
-    needs: ci-lint
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci-container.yml
+  cd:
+    name: CD
+    uses: ./.github/workflows/cd-container.yml
+    needs: ci
     with:
       container-tags: latest-dev
       platforms: linux/arm64,linux/amd64

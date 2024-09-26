@@ -1,5 +1,4 @@
 ---
-name: Integration Linting - Container
 on:
   workflow_call:
     inputs:

@@ -1,5 +1,4 @@
 ---
-name: Deployment - Container
 on:
   workflow_call:
     inputs:

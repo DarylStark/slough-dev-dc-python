@@ -1,6 +1,4 @@
 ---
-name: Push code
-run-name: "Coding branch"
 on:
   push:
     branches-ignore:
@@ -8,6 +6,6 @@ on:
       - dev
 
 jobs:
-  ci-lint:
-    name: Lint container file
-    uses: ./.github/workflows/ci-container-lint.yml
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci-container.yml
