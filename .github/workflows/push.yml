@@ -1,0 +1,9 @@
+---
+name: Push code
+on:
+  push:
+
+jobs:
+  lint-container:
+    name: Lint container file
+    uses: ./.github/workflows/ci-container-lint.yml
