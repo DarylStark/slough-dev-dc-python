@@ -14,6 +14,7 @@ jobs:
   cd-deploy:
     name: Deploy container image
     uses: ./.github/workflows/cd-container-publish.yml
+    needs: ci-lint
     with:
       container-tags: latest-dev
       platforms: linux/arm64,linux/amd64
