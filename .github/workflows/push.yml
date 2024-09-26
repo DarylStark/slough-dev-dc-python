@@ -8,6 +8,6 @@ on:
       - dev
 
 jobs:
-  lint-container:
+  ci-lint:
     name: Lint container file
     uses: ./.github/workflows/ci-container-lint.yml
