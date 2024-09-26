@@ -1,5 +1,5 @@
 # Use a minimal base image
-FROM slough-dev-dc-generic-base:0.0.3 AS base
+FROM slough-dev-dc-generic-base:latest-dev AS base
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
