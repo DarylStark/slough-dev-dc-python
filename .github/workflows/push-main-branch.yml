@@ -1,0 +1,20 @@
+---
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci-container.yml
+  cd:
+    name: CD
+    uses: ./.github/workflows/cd-container.yml
+    needs: ci
+    with:
+      container-tags: slough-dev-dc-python:latest
+      platforms: linux/arm64,linux/amd64
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
