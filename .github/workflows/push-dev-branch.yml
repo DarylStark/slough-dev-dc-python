@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - dev
-      - issue-3/* # to remove!
+      - issue-3*
 
 jobs:
   ci-lint:
