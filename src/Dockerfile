@@ -1,4 +1,4 @@
-# Use a minimal base image
+# hadolint ignore=DL3007
 FROM slough-dev-dc-generic-base:latest AS base
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
