@@ -9,6 +9,14 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
     /home/developer/.cargo/bin/uv generate-shell-completion bash >> .bashrc.local && \
     echo >> .bashrc.local
 
+# `uvx` has no `generate-shell-completion` command, so we have to add it
+# manually
+COPY ./uvx/bash-completion.sh /home/developer/uvx-bash-completion.sh
+RUN echo "# Autocompletion for UVX" >> .bashrc.local && \
+    cat /home/developer/uvx-bash-completion.sh >> .bashrc.local && \
+    echo >> .bashrc.local && \
+    rm /home/developer/uvx-bash-completion.sh
+
 # Configure `uv`
 ENV UV_PYTHON_PREFERENCE=only-managed
 
