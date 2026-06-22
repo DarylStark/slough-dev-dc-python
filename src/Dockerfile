@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM dast1986/slough-dev-dc-generic-base:1.0.0 AS base
+FROM dast1986/slough-dev-dc-generic-base:1.0.3 AS base
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -23,6 +23,13 @@ RUN /home/developer/.local/bin/uv python install 3.14
 
 # Configure Starship
 ENV PROMPTNAME="PYTHON"
+
+# Add update scripts
+COPY ./update/ /opt/update-dc/
+
+# Update the system
+# hadolint ignore=DL3004
+RUN sudo /opt/update-dc/000-update-dev-dc.sh
 
 # Set the default command to bash
 CMD ["bash"]
