@@ -12,4 +12,4 @@ print_header "Updating Python Dev Container"
 
 sudo -u developer /home/developer/.local/bin/uv tool upgrade \
     ruff \
-    mypy
+    ty

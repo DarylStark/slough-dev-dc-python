@@ -16,7 +16,7 @@ RUN /home/developer/.local/bin/uv tool install ruff && \
     echo "# Autocompletion for Ruff" >> .bashrc.local && \
     /home/developer/.local/bin/ruff generate-shell-completion bash >> .bashrc.local && \
     echo >> .bashrc.local && \
-    /home/developer/.local/bin/uv tool install mypy
+    /home/developer/.local/bin/uv tool install ty
 
 # Install a few Python versions
 RUN /home/developer/.local/bin/uv python install 3.14
